@@ -17,7 +17,14 @@
                     {% if latest_question_list %}
                         <ul class="list-group">
                         {% for question in latest_question_list %}
-                            <li class="list-group-item"><a href="{% url 'polls:detail' question.id %}"><b>{{ question.question_text }}</b></a></li>
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <a href="{% url 'polls:detail' question.id %}">
+                                    <b>{{ question.question_text }}</b>
+                                </a>
+                                {% if question.was_published_recently %}
+                                <span class="badge bg-success">New!</span>
+                                {% endif %}
+                            </li>
                         {% endfor %}
                         </ul>
                         {% else %}
