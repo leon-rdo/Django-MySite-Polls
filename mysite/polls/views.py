@@ -28,7 +28,7 @@ class DetailView(generic.DetailView):
         selected_choice.votes += 1
         selected_choice.save()
                 
-        return redirect('resultados', question.id)
+        return redirect('polls:results', question.id)
     
 
 class ResultsView(generic.DetailView):
